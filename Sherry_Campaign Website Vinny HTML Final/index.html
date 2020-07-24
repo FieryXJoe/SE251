@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vermin Supreme for President</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+<link rel="icon" type="image/png" href="Images/faviconbig.png">
+</head>
+
+<!--All sections will float left, all asides float right, div will be handled case by case-->
+<body onload = "init()">
+    <script src="script.js"></script>
+    <!--Each container contains a page, all will be in 1 index.html may be a bit unweildy we will see-->
+    <!--between parts 3 and 4 will possibly change many of these ids to classes if elements are reused on other pages-->
+    <div class="container" id="main">
+        <section id="main-left">
+            <header id="main-header">
+                <section id="main-title">
+                    Vermin Supreme
+                </section><!--/#main-title-->
+                <aside id="main-social">
+                    <!--TODO:: Make these transparent backgrounds to remove white-->
+                    <nav id="main-button-container">
+                        <a class="main-social-icon" href="https://twitter.com/VerminSupreme?s=09" target="_blank">
+                            <img id = "main-twitter" src = "Images/Twitter.png" alt = "Twitter Logo">
+                        </a>
+                        <a class="main-social-icon" href="https://www.youtube.com/channel/UCvLUbtvthGRzc8lIIVzCqTg" target="_blank">
+                            <img id = "main-youtube" src = "Images/Youtube.png" alt = "Youtube Logo">
+                        </a>
+                        <a href = "https://www.facebook.com/VerminSupreme/" class="main-social-icon" target="_blank">
+                            <img id = "main-facebook" src = "Images/Facebook.png" alt = "Facebook Logo">
+                        </a>
+                        <a class="main-social-icon" href = "https://www.instagram.com/verminsupremepresident/?igshid=5wfl2ssmdwmv" target="_blank">
+                            <img id = "main-instagram" src = "Images/Instagram.png" alt = "Instagram Logo">
+                        </a>
+                    </nav>
+                </aside><!--/#main-social-->
+            </header><!--/#main-header-->
+                <section id="main-image">
+                    <img src="Images/bio.jpg" alt="A Dreary but stoic image of Vermin Supreme">
+                </section><!--/#main-img-->
+                <aside id="main-bio">
+                    <p id = "main-bio-p">
+                        Vermin supreme was born June 3 1961 near boston and graduated Gloucester High School, he dropped out of a Baltimore art school after that. In the 1990’s he legally had his name changed to Vermin supreme, and is currently+ a satirical political candidate who has run in all levels of election since 2004 and has run as a Republican, Democrat, Independant, and Libertarian. He considers himself an anarchist leaning friendly facist who does know what is best for you.
+                    </p>
+                </aside><!--/#main-bio-->
+            <footer id ="main-bottom-text">
+                <p id = "main-bottom-text-p">
+                    Mr. Supreme gained notoriety for glitterbombing anti-gay politician Randall Terry in 2011 to “Turn him gay” and has had a cult online following ever since. He is most recognizable by the rubber boot he is nearly always wearing on his head and he springs back into the public’s attention usually every presidential race but also runs for various county and state positions in the downtime, or participates in various protests.
+                </p>
+            </footer>
+        </section><!--/#main-left-->
+        <aside id="main-right">
+            <div id="main-lib-img">
+                <section id = "main-goto-donate" onclick=changePage(5)>Donate</section>
+                <img src="Images/libertarian.png" alt = "The National Libertarian Party Logo with sillouette of Statue of Liberty and the year of founding 1971">
+            </div><!--/#main-lib-img-->
+            <div id="main-lib-desc">
+                <h4>Vermin Supreme for Libertarian Presidential Nominee 2020</h4>
+                <p id="main-lib-desc-p">
+                    I seek a world of liberty; a world in which all individuals are sovereign over their own lives and are not forced to sacrifice their values for the benefit of others. I believe that respect for individual rights is the essential precondition for a free and prosperous world, that force and fraud must be banished from human relationships, and that only through freedom can peace and prosperity be realized.
+                    Consequently, I will always defend each person’s right to engage in any activity that is peaceful and honest, and welcome the diversity that freedom brings. The world I seek to build is one where individuals are free to follow their own dreams, in their own ways, without interference from the government or any other authoritarian power. With honesty, empathy, courage, and free ponies for everyone, I will lead past, present, and future America to the pinnacle of freedom under the rule of the one and only Tyrant You Can Trust"
+                </p>
+            </div><!--/#main-lib-desc-->
+        </aside><!--/#main-right-->
+        <footer id = "main-footer" class = "nav-bar">
+            <button class = "nav-button" onclick="changePage(0)">Home</button>
+            <button class = "nav-button" onclick="changePage(1)">Policy</button>
+            <button class = "nav-button" onclick="changePage(2)">Videos</button>
+            <button class = "nav-button" onclick="changePage(3)">Calander</button>
+            <button class = "nav-button" onclick="changePage(4)">Contact</button>
+        </footer>
+    </div><!--/#main-->
+    <div class="container" id="policy">
+        <header class = "page-header">
+            <h1>
+                Vermin Supreme's Policies
+            </h1>
+        </header>
+        <div class = "policies" id = "ponynomics">
+            <h2>Ponynomics</h2>
+            <p>
+                Vermin Supreme will implement the Absolutely Free Federal Pony Identification Program (AFPIP). The first step of this program will be to make ponies very small. There are already scientists working on this feat, so there is no need to worry about the efficacy of such a plan. The next step will be implemented when tiny ponies and universal pony ownership have been achieved.
+                All pony related industries will surge, including saddle makers, alfalfa farmers, blacksmith sectors.  Almost extinct jobs like buggy whip makers will see a return to the job market. Factories that produce American made novelty pony hats, and oversized pony sunglasses will go into overdrive.  Because all buildings in America will be required to be pony accessible, a multitude of jobs will be created in the trade industries.
+            </p>
+        </div><!--/#ponynomics-->
+        <div class = "policies" id = "toothbrushing">
+            <h2>Mandatory Toothbrushing</h2>
+            <p>
+                America has been suffering a great moral and oral decay – in spirit and incisors. Gingivitis has been eroding the gum line of this great nation long enough. To combat this epidemic, all police officers will be incarcerated for perpetuating these foul-smelling behaviors. The police force will be replaced with moral hygienists. These moral hygienists will conduct regular inspections of all individuals, seeking out any traces of literal or ethical gingivitis.
+            </p>
+        </div><!--/#toothbrushing-->
+        <div class = "policies" id = "kangaroo">
+            <h2> Kangaroo Courts</h2>
+            <p>
+                Vermin Supreme will therefore redefine “crime” as: any act that disagrees with, denies, or otherwise opposes Vermin’s enforced freedoms (including but not limited to traveling without your pony or not flossing your teeth) and any act that causes harm to another person or people. All police officers will be incarcerated alongside the violent criminals for performing criminal acts previously not described as “crimes”. Every inmate will be offered the opportunity to restore Vermin’s favor with them by voluntarily undergoing zombification with the intent of working in the treadmill electricity farm. here will be a council of Vermins – past, present, and future – who have used the power of time travel to determine the validity of all charges.
+            </p>
+        </div><!--/#kangaroo-->
+        <div class = "policies" id = "zombie">
+            <h2>Zombie Power</h2>
+            <p>
+                President Supreme will do away with widely used sources of energy that are detrimental to pony habitats. These sources will be replaced with infinite and renewable zombie power.
+                State and local politicians are always talking about the good they can do for their communities. Vermin Supreme knows that the best way for these people to benefit their communities is to provide them with cost effective and environmentally friendly energy. After the initial switch to zombie power, any and all individuals who go against the newly defined Vermin Law will provide additional power to the grid.
+
+            </p>
+        </div><!--/#zombie-->
+        <footer id = "policy-footer" class = "nav-bar">
+            <button class = "nav-button" onclick="changePage(0)">Home</button>
+            <button class = "nav-button" onclick="changePage(1)">Policy</button>
+            <button class = "nav-button" onclick="changePage(2)">Videos</button>
+            <button class = "nav-button" onclick="changePage(3)">Calander</button>
+            <button class = "nav-button" onclick="changePage(4)">Contact</button>
+        </footer>
+    </div><!--/#policy-->
+    <div class="container" id="videos">
+        <header class = "page-header">
+            <h1>
+                Videos Featuring Vermin Supreme
+            </h1>
+        </header>
+        <div class = "videos-div" id = "videos-top">
+            <iframe src="https://www.youtube.com/embed/qqfVmvZOffc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/X_nEwAyoNgk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class = "videos-div" id = "videos-bot">
+            <iframe src="https://www.youtube.com/embed/rK-Lpqj7-s8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/W-tWn0JQK9o" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <footer id = "videos-footer"  class = "nav-bar">
+            <button class = "nav-button" onclick="changePage(0)">Home</button>
+            <button class = "nav-button" onclick="changePage(1)">Policy</button>
+            <button class = "nav-button" onclick="changePage(2)">Videos</button>
+            <button class = "nav-button" onclick="changePage(3)">Calander</button>
+            <button class = "nav-button" onclick="changePage(4)">Contact</button>
+        </footer>
+    </div><!--/#videos-->
+    <!--Below is Calander page mostly copy/paste from calander homework hence why naming conventions differ from rest of page-->
+    <div class="container" id="calander">
+        <h1>March 2020</h1>
+    <table style="width:95%">
+      <tr class = "days_of_week">
+        <th>Sunday</th>
+        <th>Monday</th> 
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+      </tr>
+      <tr class = "days">
+        <td>1</td>
+        <td>2
+            <p>
+                Arizona Libertarian Party Convention
+            </p>
+        </td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+      <tr class = "days">
+        <td>8</td>
+        <td>9</td>
+        <td>10
+            <p>
+                Learnin with Vermin - Libertarian Party Delegate Training
+            </p>
+        </td>
+        <td>11
+            <p>
+                New Hampshire Primary Rally
+            </p>
+        </td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+      </tr>
+      <tr class = "days">
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19
+            <p>
+                Libertarian Committee Happy Hour
+            </p>
+        </td>
+        <td>20</td>
+        <td>21</td>
+      </tr>
+      <tr class = "days">
+        <td>22
+            <p>
+                Nevada Rally
+            </p>
+        </td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27
+            <p>
+                Pony up for Vermin Supreme
+            </p>
+        </td>
+        <td>28</td>
+      </tr>
+      <tr class = "days">
+        <td>29</td>
+        <td>30</td>
+        <td>31</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+        <footer id = "calander-footer" class = "nav-bar">
+            <button class = "nav-button" onclick="changePage(0)">Home</button>
+            <button class = "nav-button" onclick="changePage(1)">Policy</button>
+            <button class = "nav-button" onclick="changePage(2)">Videos</button>
+            <button class = "nav-button" onclick="changePage(3)">Calander</button>
+            <button class = "nav-button" onclick="changePage(4)">Contact</button>
+        </footer>
+    </div><!--/#calander-->
+    <div class="container" id="contact">
+            <form action = "#" method = "post">
+            <!-- left div -->
+            <section class="contact-left">
+
+                <div class="contact-field">
+                <!-- text input -->
+                    <h4>Name:</h4>
+                    <input type = "text" name = "Name">
+                </div>
+
+                <div class="contact-field">
+                    <h4>Email:</h4>
+                    <input type = "text" name = "Email">
+                </div>
+
+                <div class="contact-field">
+                    <h4>Comments</h4>
+                    <!-- Textarea -->
+                    <textarea name ="Comments" cols = "30" rows = "16"></textarea>
+                </div>
+
+            </section><!--/.left -->
+
+            <aside class="contact-right">
+                <div class="contact-field2">
+
+                    <h4>Pick Your Registered Political Party</h4>
+                    <!-- Select -->
+                    <select name="Favorite Colors">
+                        <option value="Republican">
+                            Republican
+                        </option>
+                        <option value="Democrat">
+                            Democrat
+                        </option>
+                        <option value="Libertarian">
+                            Libertarian
+                        </option>
+                        <option value="Independant">
+                            Independant
+                        </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+
+                </div>
+
+                <div class="contact-field2">
+
+                    <h4>How old are you?</h4>
+                    <!-- Radio -->
+                    <input type="radio" name ="How Old" value ="Under 18">Under 18<br>
+                    <input type="radio" name ="How Old" value ="18-29">18-29<br>
+                    <input type="radio" name ="How Old" value ="30-44">30-44<br>
+                    <input type="radio" name ="How Old" value ="45-64">45-64<br>
+                    <input type="radio" name ="How Old" value ="Over 65">Over 65<br>
+                </div>
+                <div class="contact-field2">
+
+                    <h4>Which of the following will <br>You do for Vermin's campaign</h4>
+                    <!-- Checkbox -->
+                    <input type="checkbox" name="Option1" value="Donate">Donate<br>
+                    <input type="checkbox" name="Phone Bank" value="Phone Bank">Phone Bank<br>
+                    <input type="checkbox" name="Canvasing" value="Canvasing">Canvasing<br>
+                </div>
+            </aside><!--./right -->
+
+            <footer class="contact-submit-box">
+                <!-- Submit -->
+              <input type = "submit" onClick = "">
+
+            </footer><!--/.submit-box -->
+        </form>
+        <footer id = "contact-footer"  class = "nav-bar">
+            <button class = "nav-button" onclick="changePage(0)">Home</button>
+            <button class = "nav-button" onclick="changePage(1)">Policy</button>
+            <button class = "nav-button" onclick="changePage(2)">Videos</button>
+            <button class = "nav-button" onclick="changePage(3)">Calander</button>
+            <button class = "nav-button" onclick="changePage(4)">Contact</button>
+        </footer>
+    </div><!--/#contact-->
+    <!--Wanted to make this a new .html page but couldnt do that with same css page because of changes to body tag Instead settled for a new page without a link on the navigation bar and a link on the home page and a return button from donate page.-->
+    <div class = "container" id = "donate">
+        <header class = "page-header">
+            <h1>
+                Donate to Vermin
+            </h1>
+        </header>
+        <div id = "donate-body">
+            <div class = "donate-row">
+                <section class = "donate-button">
+                    1$
+                </section>
+                <section class = "donate-button">
+                    5$
+                </section>
+                <section class = "donate-button">
+                    10$
+                </section>
+                <section class = "donate-button">
+                    20$
+                </section>
+            </div><!--/.donate-row-->
+            <div class = "donate-row">
+                <section class = "donate-button">
+                    35$
+                </section>
+                <section class = "donate-button">
+                    60$
+                </section>
+                <section class = "donate-button">
+                    100$
+                </section>
+                <section class = "donate-button">
+                    <div class="contact-field" id = "donate-input">
+                        <input type = "text" name = "Name">
+                    </div>
+                </section>
+            </div><!--/.donate-row-->
+            <p id = "donate-p">I seek a world of liberty; a world in which all individuals are sovereign over their own lives and are not forced to sacrifice their values for the benefit of others. I believe that respect for individual rights is the essential precondition for a free and prosperous world, that force and fraud must be banished from human relationships, and that only through freedom can peace and prosperity be realized.</p>
+            <footer id = "donate-footer">
+                <section class = "donate-button-bot" onclick="changePage(0)">
+                    Go Home
+                </section>
+                <section class = "donate-button-bot">
+                    Submit
+                </section>
+            </footer><!--/.donate-row-->
+        </div>
+    </div><!--/#donate-->
+</body>
+</html>
