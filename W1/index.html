@@ -72,5 +72,11 @@
                 console.log(objArray[i]) 
         }
         console.log("")
+
+        for(let i = 0; i < 100; i++){
+            for(property in objArray[i])
+                console.log(property + ": " + objArray[i][property])
+        }
+        console.log("")
     </script>
 </html>
