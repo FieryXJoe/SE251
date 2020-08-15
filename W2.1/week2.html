@@ -23,6 +23,18 @@
 		{first:"Marion", last:"Cobretti", credit:"Cobra" }
 	]
 	
+	var x = 0
+	people.forEach(person => {
+		var tempDiv = document.createElement("div")
+		tempDiv.innerHTML += "<p> " + person.first + "</p>"
+		tempDiv.innerHTML += "<p> " + person.last + "</p>"
+		tempDiv.innerHTML += "<p> " + person.credit + "</p>"
+		tempDiv.className = "border"
+		tempDiv.setAttribute("id", x++)
+		document.body.append(tempDiv)
+	})
+
+	
 </script>
 
 </html>
