@@ -26,9 +26,23 @@
 	var x = 0
 	people.forEach(person => {
 		var tempDiv = document.createElement("div")
-		tempDiv.innerHTML += "<p> " + person.first + "</p>"
-		tempDiv.innerHTML += "<p> " + person.last + "</p>"
-		tempDiv.innerHTML += "<p> " + person.credit + "</p>"
+		
+		var tempPF = document.createElement("p")
+		var tempPL = document.createElement("p")
+		var tempPC = document.createElement("p")
+		
+		var tNodeF = document.createTextNode(person.first)
+		var tNodeL = document.createTextNode(person.last)
+		var tNodeC = document.createTextNode(person.credit)
+
+		tempPF.append(tNodeF)
+		tempPL.append(tNodeL)
+		tempPC.append(tNodeC)
+		
+		tempDiv.append(tempPF)
+		tempDiv.append(tempPL)
+		tempDiv.append(tempPC)
+
 		tempDiv.className = "border"
 		tempDiv.setAttribute("id", x++)
 		document.body.append(tempDiv)
