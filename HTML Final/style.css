@@ -45,7 +45,7 @@ aside{
 }
 /*All main page CSS*/
 #main{
-    background-image:url(images/mainBgImg.jfif);
+    background-image:url(Images/mainBgImg.jfif);
     box-shadow: 0 3000px rgba(166,77,121,0.60) inset;
 }
 #main-left{
@@ -55,7 +55,7 @@ aside{
     margin-bottom:1vh;
     width:60vw;
     height:90vh;
-    background-image:url(images/mainTextPattern.png);
+    background-image:url(Images/mainTextPattern.png);
     box-shadow: 0 3000px rgba(120,40,40,0.45) inset;
 }
 #main-header{
@@ -74,11 +74,11 @@ aside{
     color:wheat;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    background-image:url(images/mainBgImg.jpg);
+    background-image:url(Images/mainBgImg.jpg);
     box-shadow: 0 3000px rgba(204,0,0,0.65) inset;
 }
 #main-social{
-    background-image:url(images/mainBgImg.jpg);
+    background-image:url(Images/mainBgImg.jpg);
     box-shadow: 0 3000px rgba(152,0,0,0.65) inset;
     height:8vh;
     width:30%;
@@ -189,7 +189,7 @@ footer{
     margin-top:1vh;
 }
 #main-footer{
-    background-image:url(images/mainBgImg.jpg);
+    background-image:url(Images/mainBgImg.jpg);
     box-shadow: 0 3000px rgba(152,0,0,0.65) inset;
     border:2px inset red;
 }
@@ -201,7 +201,7 @@ footer{
     margin-left:3.5vw;
     text-align: center;
     line-height:3vh;
-    background-image:url(images/mainBgImg.jpg);
+    background-image:url(Images/mainBgImg.jpg);
     box-shadow: 0 3000px rgba(204,0,0,0.65) inset;
     font-family:'Patua One';
     font-size: 2.5vh;
@@ -215,7 +215,7 @@ footer{
 }
 /*Policy Page CSS*/
 #policy{
-    background-image:url(images/PoliciesContainerBG.jpg);
+    background-image:url(Images/PoliciesContainerBG.jpg);
     box-shadow: 0 3000px rgba(10,40,200,0.45) inset;
 }
 .page-header{
@@ -239,7 +239,7 @@ footer{
     float:left;
     margin-left:3vw;
     margin-bottom:2vh;
-    background-image:url(images/policiesBackground.png);
+    background-image:url(Images/policiesBackground.png);
     box-shadow: 0 3000px rgba(10,10,60,0.45) inset;
     opacity: 70%;
     border-radius: 50px;
@@ -264,14 +264,14 @@ footer{
     -webkit-text-stroke-color: darkgreen;
 }
 #policy-footer{
-    background-image:url(images/policiesBackground.png);
+    background-image:url(Images/policiesBackground.png);
     box-shadow: 0 3000px rgba(10,10,60,0.45) inset;
     border:2px inset darkslategray;
     border-radius: 30px;
 }
 /*CSS for videos page below*/
 #videos{
-    background-image:url(images/VideosBg.jpg);
+    background-image:url(Images/VideosBg.jpg);
     box-shadow: 0 3000px rgba(100,30,60,0.45) inset;
 }
 #videos iframe{
@@ -288,7 +288,7 @@ footer{
 #videos-footer{
     border:2px solid darkviolet;
     border-radius: 50px;
-    background-image:url(images/VideosBg.jpg);
+    background-image:url(Images/VideosBg.jpg);
     box-shadow: 0 3000px rgba(120,100,255,0.45) inset;
 }
 #videos-footer button{
@@ -301,7 +301,7 @@ footer{
 }
 /*Below is Calander CSS mostly copy/paste from calander homework so naming conventions will differ*/
 #calander{
-    background-image:url(images/mainBgImg.jfif);
+    background-image:url(Images/mainBgImg.jfif);
     box-shadow: 0 3000px rgba(192,171,147,0.5) inset;
 }
 #calander table, tr, th, td{
@@ -316,7 +316,7 @@ footer{
     margin-bottom: 1vh;
 }
 #calander tr{
-    background-image:url(images/mainBgImg.jfif);
+    background-image:url(Images/mainBgImg.jfif);
     box-shadow: 0 3000px rgba(192,171,147,0.5) inset;
 }
 #calander th{
@@ -353,7 +353,7 @@ footer{
 }
 /*Contact CSS*/
 #contact{
-    background-image:url(images/VideosBg.jpg);
+    background-image:url(Images/VideosBg.jpg);
     box-shadow: 0 3000px rgba(110,40,25,0.45) inset;
     font-family:'Days One';
 }
@@ -416,7 +416,7 @@ footer{
     border:2px outset turquoise;
     border-radius: 50px;
     height:70px;
-    background-image:url(images/VideosBg.jpg);
+    background-image:url(Images/VideosBg.jpg);
     box-shadow: 0 3000px rgba(60,160,50,0.45) inset;
 }
 #contact-footer button{
@@ -441,7 +441,7 @@ footer{
 }
 /*Donate Page CSS*/
 #donate{
-    background-image:url(images/Donations%20Background.jpg);
+    background-image:url(Images/Donations%20Background.jpg);
     box-shadow: 0 3000px rgba(170,120,20,0.45) inset;
 }
 #donate-body{
