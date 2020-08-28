@@ -54,7 +54,6 @@
             {
                 cell = table.rows[i].cells[j]
                 average += Number(cell.innerHTML)//Otherwise adds it like string, simply appending
-                console.log(average)
                 if(cell.innerHTML % 3 == 0)//weirdly these conditionals treat innerHTML like a number where += does not
                     cell.bgColor = `red`
                 else if(cell.innerHTML % 2 == 0)
