@@ -8,12 +8,12 @@
     <title>Joseph S | Week 5 | Random Grid</title>
 </head>
 <body>
-    <form onsubmit="generateGrid()">
-        <input type = "number" id = "numIn" name = "numIn">
-        <input type = "submit" value = "Generate">
-        <div id = "average"></div>
+    <form>
+        <input type="number" id="numIn" name="numIn">
+        <input id="submitButton" type="button" value="Generate">
+        <div id="average"></div>
     </form>
-    <div id = "gridOut">
+    <div id="gridOut">
 
     </div>
 </body>
@@ -21,9 +21,9 @@
     function generateGrid()
     {
         //Only 1 on screen at a time
-        /*var table = document.getElementById("generatedTable")
+        var table = document.getElementById("generatedTable")
         if (table !== null)
-           table.remove();*/
+           table.remove();
         //get user num
         var x = Math.floor(document.querySelector(`#numIn`).value)
         //generate table
@@ -38,33 +38,42 @@
             {
                 var col = document.createElement(`td`)
                 var n = randomNumber(0,100)
-                col.value = n;
+                col.innerHTML = n;
                 row.append(col)
             }
             eleTable.append(row)
         }
         document.querySelector(`#gridOut`).append(eleTable)
         //pt 2 change bgcolors and find avg
-     /*   var counter = 0
+        var counter = 0
         var average = 0
-        table = document.getElementById("generatedTable")
+        table = document.querySelector(`#generatedTable`)
         //Got this code here https://stackoverflow.com/questions/3065342/how-do-i-iterate-through-table-rows-and-cells-in-javascript
-        for(var k = 0, cell; cell = table.cells[k]; k++)
+        for(let i = 0; i < x; i++)
         {
-            counter++;
-            average += cell.innerHTML
-            alert(average)
-            if(cell.value % 3 == 0)
-                cell.style.backgroundColor = "red"
-            if(cell.value % 2 == 0)
-                cell.style.backgroundColor = "blue"
+            for(let j = 0; j < x; j++)
+            {
+                cell = table.rows[i].cells[j]
+                average += Number(cell.innerHTML)
+                console.log(average)
+                if(cell.innerHTML % 3 == 0)
+                    cell.bgColor = `red`
+                else if(cell.innerHTML % 2 == 0)
+                    cell.bgColor = `blue`
+            }
         }
-        average /= counter
-        document.getElementById("average").innerHTML = "Average Cell Value: " + average
-        */
+        average /= (x*x)
+        document.querySelector(`#average`).innerHTML = `Average Cell Value: ` + average
     }
+    document.querySelector(`#submitButton`).addEventListener(`click`, generateGrid)
     function randomNumber (min, max) 
     {
-        return Math.floor (Math.random() * (max - min + 1)) + min;
+        return Math.floor (Math.random() * (max - min + 1)) + min
+    }
+    //bugfixing
+    function mySleep(miliseconds) 
+    {
+        var currentTime = new Date().getTime();
+        while (currentTime + miliseconds >= new Date().getTime()) {}
     }
 </script>
