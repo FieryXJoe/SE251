@@ -48,15 +48,14 @@
         var counter = 0
         var average = 0
         table = document.querySelector(`#generatedTable`)
-        //Got this code here https://stackoverflow.com/questions/3065342/how-do-i-iterate-through-table-rows-and-cells-in-javascript
         for(let i = 0; i < x; i++)
         {
             for(let j = 0; j < x; j++)
             {
                 cell = table.rows[i].cells[j]
-                average += Number(cell.innerHTML)
+                average += Number(cell.innerHTML)//Otherwise adds it like string, simply appending
                 console.log(average)
-                if(cell.innerHTML % 3 == 0)
+                if(cell.innerHTML % 3 == 0)//weirdly these conditionals treat innerHTML like a number where += does not
                     cell.bgColor = `red`
                 else if(cell.innerHTML % 2 == 0)
                     cell.bgColor = `blue`
@@ -69,11 +68,5 @@
     function randomNumber (min, max) 
     {
         return Math.floor (Math.random() * (max - min + 1)) + min
-    }
-    //bugfixing
-    function mySleep(miliseconds) 
-    {
-        var currentTime = new Date().getTime();
-        while (currentTime + miliseconds >= new Date().getTime()) {}
     }
 </script>
