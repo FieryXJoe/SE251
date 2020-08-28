@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Week 1">
+    <meta name="author" content="Joseph Sherry">
+    <title>Joseph S | Week 5 | Random Grid</title>
+</head>
+<body>
+    <form onsubmit="generateGrid()">
+        <input type = "number" id = "numIn" name = "numIn">
+        <input type = "submit" value = "Generate">
+        <div id = "average"></div>
+    </form>
+    <div id = "gridOut">
+
+    </div>
+</body>
+<script>
+    function generateGrid()
+    {
+        //Only 1 on screen at a time
+        /*var table = document.getElementById("generatedTable")
+        if (table !== null)
+           table.remove();*/
+        //get user num
+        var x = Math.floor(document.querySelector(`#numIn`).value)
+        //generate table
+        var eleTable = document.createElement(`table`)
+        eleTable.setAttribute(`id`, `generatedTable`)
+
+        for(let i = 0; i < x; i++)
+        {
+            var row = document.createElement(`tr`)
+
+            for(let j = 0; j < x; j++)
+            {
+                var col = document.createElement(`td`)
+                var n = randomNumber(0,100)
+                col.value = n;
+                row.append(col)
+            }
+            eleTable.append(row)
+        }
+        document.querySelector(`#gridOut`).append(eleTable)
+        //pt 2 change bgcolors and find avg
+     /*   var counter = 0
+        var average = 0
+        table = document.getElementById("generatedTable")
+        //Got this code here https://stackoverflow.com/questions/3065342/how-do-i-iterate-through-table-rows-and-cells-in-javascript
+        for(var k = 0, cell; cell = table.cells[k]; k++)
+        {
+            counter++;
+            average += cell.innerHTML
+            alert(average)
+            if(cell.value % 3 == 0)
+                cell.style.backgroundColor = "red"
+            if(cell.value % 2 == 0)
+                cell.style.backgroundColor = "blue"
+        }
+        average /= counter
+        document.getElementById("average").innerHTML = "Average Cell Value: " + average
+        */
+    }
+    function randomNumber (min, max) 
+    {
+        return Math.floor (Math.random() * (max - min + 1)) + min;
+    }
+</script>
