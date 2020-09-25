@@ -13,6 +13,7 @@ body
 #grid
 {
     margin-left:20vw;
+    width:300px;
     border:1px solid black;
     background-color: darkslategrey;
 }
