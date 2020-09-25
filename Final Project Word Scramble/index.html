@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href = "style.css">
+    </head>
+    <body>
+        <div id = "timer">90s</div>
+        <div id = "container">
+            <div id = "grid">
+                <table id = "table">
+                    <!--10x10 table put rows on 1 line to save space-->
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                    <tr>
+                        <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                    </tr>
+                </table>
+            </div><!--/#table-->
+            <div id = "word-list">
+                Word List:
+            </div>
+            <div id = "start-button" onclick="resetBoard()">
+                Start/Reset
+            </div>
+        </div><!--/#container-->
+    </body>
+    <script>
+
+        var urlNoSuffix = "https://wordsapiv1.p.rapidapi.com/words/"
+        var words = []
+        var responses = []
+        var definitions = []
+
+        function checkIfRealWord(word)
+        {
+            fetch(urlNoSuffix + word + "/definitions", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                    "x-rapidapi-key": "74a29b82d4msh5c2e7a0f4eccefap158e40jsn92b5c87f6291"
+                }
+            })
+            .then(response => {
+                if(response.ok)
+                {
+                    words.push(word)//instead of local storage just adding data to a list with a hopefully paralell word list (I could imagine asynchronus js unaligning these and will watch for it)
+                    responses.push(response)//These two ended up not being used or needed but kept them in
+                    definitions.push(response.text())
+                    addToWordList(word)
+                }
+                //console.log(response)
+                //localStorage.setItem(word, response.text())
+                //console.log(localStorage.getItem(word)) //This really wasnt working well stringifying didnt work and i kept recovering broken useless objects no matter how i stored them 
+            })
+            .catch(err => { //This never ran, if url didnt exist an error was auto output and response.ok would be false so I use that to check for success
+                console.log(err)
+            })
+        }
+        //timer stuff
+        var isPaused = true
+        var timer = document.querySelector("#timer")
+        var table = document.querySelector("#table")
+
+        function incrementTimer()//increments timer and does stuff tied to timer like ending game
+        {
+            let currentTime = timer.innerHTML.substring(0,timer.innerHTML.length - 1)//gets number from timer
+            if(!isPaused && currentTime != 0)
+            {
+                currentTime -= 1
+                timer.innerHTML = currentTime + "s"
+            }
+            else if(currentTime == 0)
+            {
+                document.body.style.background  = "#ff0000"
+            }
+        }
+        function startTimer()//will be run when user starts new game, they cant pause in middle of round because then they could cheat
+        {
+            isPaused = false
+            timer.innerHTML = "90s"
+            //originally had in else statement in incrementTimer but led to 1s delay after starting to change color
+            document.body.style.background  = "#ffffff"
+        }
+        function pauseTimer()
+        {
+            isPaused = true
+        }
+        setInterval(incrementTimer, 1000)//runs increment timer function every second
+
+        //board and game stuff
+        var characters = "AAAABCCDEEEEEFGHHIIIJKLLMMNNNOOOOPQRRRSSSTTTTUUVWXYZ"//String for generating random chars, duplicates to roughly represent very common letters
+        var cellClicked = [-1,-1]//will store last cell user clicked
+        var cellClickReleased = [-1,-1]//will store last cell user ended click on
+        
+        function resetBoard()
+        {
+            //fill table with random characters
+            for(let i = 0; i < table.rows.length; i++)
+            {
+                for(let j = 0; j < table.rows[i].cells.length; j++)
+                {
+                    let cell = table.rows[i].cells[j]
+                    cell.innerHTML = characters.charAt(Math.floor(Math.random() * characters.length))
+                    //add eventlisteners to click and drag to select cells doing it here is inefficient but best place I could think of
+                    cell.addEventListener("mousedown", mouseDownListener)
+                    cell.addEventListener("mouseup", mouseUpListener)
+                }
+            }
+            
+            //TODO: clear word list and the 3 arrays storing data, probably coord arrays too
+            resetWordList()
+            words = []
+            responses = []
+            definitions = []
+
+            startTimer()
+        }
+
+        //Just stores value processing done on mouse up
+        function mouseDownListener(event)
+        {
+            let row = event.target.parentElement.rowIndex
+            let col = event.target.cellIndex
+            cellClicked = [row, col]
+        }
+        /*
+        This will do a lot these notes are to help me keep track
+        -determine if both coords have values stored
+        -determine if they are in line or valid diagonal
+        -retrieve the selected word, may need 8 for loops in a switch-case statement for 8 directions(decided on if-else)
+        -check word isnt already on list
+        -check word is valid
+        -if valid add to display list (this is done in word check function)
+        -reset coords
+        */
+        function mouseUpListener(event)
+        {
+            let row = event.target.parentElement.rowIndex
+            let col = event.target.cellIndex
+            cellClickReleased = [row, col]
+
+            //90% of the logic will go in here
+            if(cellClicked != [-1,-1] && cellClickReleased != [-1,-1])//second half probably unecessary but keeping for clarity
+            {
+                let isValidLine = false
+                let diffRow = cellClickReleased[0] - cellClicked[0]
+                let diffCol = cellClickReleased[1] - cellClicked[1] 
+                //Figure out if line was valid    
+                if(diffRow == 0)//Horizontal
+                    isValidLine = true
+                else if(diffCol == 0)//Vertical
+                    isValidLine = true
+                else if(Math.abs(diffRow) == Math.abs(diffCol))//45 degree diagonal
+                    isValidLine = true
+                
+                if(diffRow == 0 & diffCol == 0)//if they started and ended on same cell
+                    isValidLine = false
+
+                //Retrieves the selected word, decided against switch because 2 variables important
+                if(isValidLine)
+                {
+                    //gives these values of -1, 0, 1 to represent direction
+                    let xDirection = diffCol != 0 ? diffCol / Math.abs(diffCol) : 0
+                    let yDirection = diffRow != 0 ? diffRow / Math.abs(diffRow) : 0
+                    let selectedWord = ""
+
+                    if(xDirection == -1)
+                        if(yDirection == -1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)//On diagonals will reference |diffRow| as it will always = |diffCol|
+                                selectedWord += table.rows[cellClicked[0] - i].cells[cellClicked[1] - i].innerHTML
+                        else if(yDirection == 0)
+                            for(let i = 0; i <= Math.abs(diffCol); i++)
+                                selectedWord += table.rows[cellClicked[0]].cells[cellClicked[1] - i].innerHTML
+                        else if(yDirection == 1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)
+                                selectedWord += table.rows[cellClicked[0] + i].cells[cellClicked[1] - i].innerHTML
+                    if(xDirection == 0)
+                        if(yDirection == -1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)
+                                selectedWord += table.rows[cellClicked[0] - i].cells[cellClicked[1]].innerHTML
+                        else if(yDirection == 1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)
+                                selectedWord += table.rows[cellClicked[0] + i].cells[cellClicked[1]].innerHTML
+                    if(xDirection == 1)//when this was else if it stopped working, i didnt get why but it did
+                        if(yDirection == -1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)
+                                selectedWord += table.rows[cellClicked[0] - i].cells[cellClicked[1] + i].innerHTML
+                        else if(yDirection == 0)
+                            for(let i = 0; i <= Math.abs(diffCol); i++)
+                                selectedWord += table.rows[cellClicked[0]].cells[cellClicked[1] + i].innerHTML
+                        else if(yDirection == 1)
+                            for(let i = 0; i <= Math.abs(diffRow); i++)
+                                selectedWord += table.rows[cellClicked[0] + i].cells[cellClicked[1] + i].innerHTML
+
+                    let currentTime = timer.innerHTML.substring(0,timer.innerHTML.length - 1)//gets number from timer
+                    //Time not run out
+                    if(currentTime != 0)
+                    {
+                        //Checks this is first instance of the word
+                        let wordAlreadyUsed = false
+                        for(word in words)
+                            if(words[word] == selectedWord)
+                                wordAlreadyUsed = true
+                        //Runs the AJAX fetch request if all conditions met
+                        if(!wordAlreadyUsed)
+                            checkIfRealWord(selectedWord)
+                    }
+                    
+                }
+            }
+
+            //resets values after click release is processed
+            cellClicked = [-1,-1]
+            cellClickReleased = [-1,-1]
+        }
+
+        var wordList = document.querySelector("#word-list")
+        function addToWordList(word)
+        {
+            wordList.innerHTML += "<br>" + word
+        }
+        function resetWordList()
+        {
+            wordList.innerHTML = "Word List:"
+        }
+    </script>
+</html>
