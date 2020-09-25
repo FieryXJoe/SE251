@@ -207,7 +207,7 @@
                         else if(yDirection == 1)
                             for(let i = 0; i <= Math.abs(diffRow); i++)
                                 selectedWord += table.rows[cellClicked[0] + i].cells[cellClicked[1]].innerHTML
-                    if(xDirection == 1)//when this was else if it stopped working, i didnt get why but it did
+                    if(xDirection == 1)//when this was else if it stopped working, i didnt get why but it did (its because I removed curly braces and JS cant read indentation)
                         if(yDirection == -1)
                             for(let i = 0; i <= Math.abs(diffRow); i++)
                                 selectedWord += table.rows[cellClicked[0] - i].cells[cellClicked[1] + i].innerHTML
@@ -248,6 +248,78 @@
         function resetWordList()
         {
             wordList.innerHTML = "Word List:"
+        }
+        /*
+			Before adding this in all my testing I did not find a single word longer than 4 letters
+			in 12 or so tries. This is my solution. I am going to run a second round over the array 
+			I will pick out letters that the first part of the most common 2 letter combinations in
+			english. I will then look around them for the absolute least common letters in English
+			that are still over represented and will replace them with more common letter pairings.
+			These pairings are.
+			TH ER ON AN SS EE TT FF
+		*/
+		function wordify()
+		{
+			for(let i = 0; i < table.rows.length; i++)
+            {
+                for(let j = 0; j < table.rows[i].cells.length; j++)
+                {
+                    let cell = table.rows[i].cells[j]
+                    let rand = Math.random(100)
+                    
+                    if(rand > 5)
+                    {
+                        let cells = getSurroundingCells(cell)//computationally inefficient but less typing to do this here
+                        switch(cell.innerHTML)
+                        {
+                            case T:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        if(rand >= 50)
+                                            c.innerHTML = "H"
+                                        else
+                                            c.innerHTML = "T"
+                            case E:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        if(rand >= 50)
+                                            c.innerHTML = "R"
+                                        else
+                                            c.innerHTML = "E"
+                            case O:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        c.innerHTML = "N"
+                            case A:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        c.innerHTML = "A"
+                            case S:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        c.innerHTML = "S"
+                            case F:
+                                for(c in cells)
+                                    if(c.innerHTML == "Q" || "J" || "X" || "Z")
+                                        c.innerHTML = "F"
+                        }
+                    }
+                }
+            }
+		}
+        function getSurroundingCells(cell)
+        {
+            let cells = []
+            cells.push(table.rows[cell.rowIndex + 1].cells[cell.cellIndex])
+            cells.push(table.rows[cell.rowIndex - 1].cells[cell.cellIndex])
+            cells.push(table.rows[cell.rowIndex + 1].cells[cell.cellIndex + 1])
+            cells.push(table.rows[cell.rowIndex - 1].cells[cell.cellIndex + 1])
+            cells.push(table.rows[cell.rowIndex - 1].cells[cell.cellIndex - 1])
+            cells.push(table.rows[cell.rowIndex + 1].cells[cell.cellIndex - 1])
+            cells.push(table.rows[cell.rowIndex].cells[cell.cellIndex + 1])
+            cells.push(table.rows[cell.rowIndex].cells[cell.cellIndex - 1])
+            
+            return cells
         }
     </script>
 </html>
